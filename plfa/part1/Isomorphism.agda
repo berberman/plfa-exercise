@@ -9,6 +9,12 @@ open import Data.Nat.Properties using (+-comm)
 _°_ : ∀ {A B C : Set} → (B → C) → (A → B) → (A → C)
 (g ° f) x  = g (f x)
 
+postulate
+  extensionality : ∀ {A B : Set} {f g : A → B}
+    → (∀ (x : A) → f x ≡ g x)
+      -----------------------
+    → f ≡ g
+
 infix 0 _≃_
 record _≃_ (A B : Set) : Set where
   field
