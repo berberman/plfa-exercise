@@ -202,13 +202,7 @@ o+o≡e : ∀ {m n : ℕ}
   → odd n
   → even (m + n)
 
-even-comm : ∀ (m n : ℕ)
-  → even (m + n)
-  → even (n + m)
-even-comm m n ev rewrite +-comm n m = ev
-
-
 e+e≡e zero n = n
 e+e≡e (suc m) n = suc (o+e≡o m n)
 o+e≡o (suc m) n = suc (e+e≡e m n)
-o+o≡e {suc m} {n} (suc em) en rewrite even-comm m n (e+e≡e em en) = suc (o+e≡o em en)
+o+o≡e {suc m} {n} (suc e) o rewrite +-comm m n = suc (o+e≡o o e)
